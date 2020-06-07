@@ -1,0 +1,89 @@
+﻿@{
+    var lstData = (List<LMSSoft_Library.Models.FineReportList>)ViewBag.lstData;
+
+    ViewData["Title"] = "Fine Report";
+
+    decimal? TotalAmt = 0;
+}
+
+<div class="row">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="@Url.Action("Index","Home")">Home</a>
+            </li>
+            <li>
+                <a href="#">Reports</a>
+            </li>
+            <li>
+                <a href="@Url.Action("FineReport","Report")">Fine Report</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<br />
+
+<div class="main_content well">
+    <script src="~/Content/js/jquery-ui.min.js"></script>
+
+    <div class="form-group">
+        <div class="row">
+            @using (Html.BeginForm("FineReport", "Report", FormMethod.Post, new { @id = "form-submit" }))
+            {
+                <div class="col-sm-2 form-group">
+                    <label class = "form-label">From Date</label>
+                    <input type="date" name="FDate" class="form-control"/>
+                </div>
+                <div class="col-sm-2 form-group">
+                    <label class="form-label">To Date</label>
+                    <input type="date" name="TDate" class="form-control" />
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    <br />
+                    <button type="Submit" class="btn btn-sm btn-info" >Show</button>
+                </div>
+            }
+        </div>
+
+        <table class="table table-striped" style="width:40%;">
+            <thead>
+                <tr>
+                    <th>SN.</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+
+                    if (lstData != null)
+                    {
+                        int i = 0;
+                        foreach (var item in lstData)
+                        {
+                            TotalAmt += item.Amt;
+                            i++;
+                            <tr>
+                                <td>@i</td>
+                                <td>@(Convert.ToDateTime(item.FDate).ToString("yyyy-MM-dd"))</td>
+                                <td style="text-align:right;">@item.Amt</td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+            <tfoot>
+                <tr style="font-weight:bold;">
+                    <td colspan="2" style="text-align:right;">Total : </td>
+                    <td style="text-align:right;">@TotalAmt</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

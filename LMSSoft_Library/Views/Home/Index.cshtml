@@ -1,0 +1,177 @@
+﻿@model LMSSoft_Library.Models.Dashboard
+
+@{
+    var lstData = (List<LMSSoft_Library.Models.DueBooksList>)ViewBag.lstData;
+
+    ViewBag.Title = "Dashboard";
+}
+<div class="page-header">
+    <h1>
+        Dashboard
+    </h1>
+</div>
+
+
+
+<div class="row">
+    <div class="space-6"></div>
+
+    <div class="col-md-12 infobox-container">
+        <div class="infobox infobox-green" style="margin:10px;">
+            <div class="infobox-icon">
+                <i class="ace-icon fa fa-book"></i>
+            </div>
+
+            <div class="infobox-data">
+                <span class="infobox-data-number">@Model.TotalBooks</span>
+                <div class="infobox-content">Total No. Of Books</div>
+            </div>
+        </div>
+
+        <div class="infobox infobox-green" style="margin:10px;">
+            <div class="infobox-icon">
+                <i class="ace-icon fa fa-book"></i>
+            </div>
+
+            <div class="infobox-data">
+                <span class="infobox-data-number">@Model.TotalBooksCategory</span>
+                <div class="infobox-content">Total Books Category</div>
+            </div>
+        </div>
+
+
+        <div class="infobox infobox-blue" style="margin:10px;">
+            <div class="infobox-icon">
+                <i class="ace-icon fa fa-align-center"></i>
+            </div>
+
+            <div class="infobox-data">
+                <span class="infobox-data-number">@Model.TotalIssue</span>
+                <div class="infobox-content">Total Issued Books</div>
+            </div>
+
+        </div>
+
+        <div class="infobox infobox-pink" style="margin:10px;">
+            <div class="infobox-icon">
+                <i class="ace-icon fa fa-users"></i>
+            </div>
+
+            <div class="infobox-data">
+                <span class="infobox-data-number">@Model.TotalStudent</span>
+                <div class="infobox-content">Total No. Of Students</div>
+            </div>
+        </div>
+
+        <div class="infobox infobox-red" style="margin:10px;">
+            <div class="infobox-icon">
+                <i class="ace-icon fa fa-user"></i>
+            </div>
+
+            <div class="infobox-data">
+                <span class="infobox-data-number">@Model.TotalStaff</span>
+                <div class="infobox-content">Total No. Of Staffs</div>
+            </div>
+        </div>
+
+        <div class="infobox infobox-orange2" style="margin:10px;">
+            <div class="infobox-icon">
+                <i class="ace-icon fa fa-list-alt"></i>
+            </div>
+
+            <div class="infobox-data">
+                <span class="infobox-data-number">@(Model.TotalBooks - Model.TotalIssue)</span>
+                <div class="infobox-content">Available Books</div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+
+@{
+    if (!Session["UserType"].ToString().Equals("admin"))
+    {
+
+        <div class="col-md-12">
+            <h4>Due Books</h4>
+            <div class="form-group">
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>SN.</th>
+                            <th>Issue Date</th>
+                            <th>Accession No</th>
+                            <th>ISBN No.</th>
+                            <th>Book Title</th>
+                            <th>Issued To</th>
+                            <th>Due Days</th>
+                            <th>Fine Days</th>
+                            <th>Fine Amt.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int FinaAmtTotal = 0;
+                            if (lstData != null)
+                            {
+                                int i = 0;
+                                foreach (var item in lstData)
+                                {
+                                    i++;
+                                    <tr>
+                                        <td>@i</td>
+                                        <td>@(Convert.ToDateTime(item.Issue_Date).ToString("yyyy-MM-dd"))</td>
+                                        <td>@item.AccessionNo</td>
+                                        <td>@item.IsbnNo</td>
+                                        <td>@item.BookTitle</td>
+                                        <td>@item.Issue_To - @item.IssuedToName</td>
+                                        <td>@item.Due_Days</td>
+                                        @{
+                                            int FineDays = 0;
+                                            int FineAmt = 0;
+
+                                            int DiffDays = DateTime.Today.Subtract(Convert.ToDateTime(item.Issue_Date)).Days;
+                                            if (DiffDays > item.Due_Days)
+                                            {
+                                                FineDays = DiffDays - 10;
+                                                FineAmt = 0;
+                                                if (item.Issue_To.Equals("Student"))
+                                                {
+                                                    if (FineDays > 7)
+                                                    {
+                                                        FineAmt = (7 * 5);
+                                                        FineAmt += ((FineDays - 7) * 10);
+                                                    }
+                                                    else
+                                                    {
+                                                        FineAmt = FineDays * 5;
+                                                    }
+                                                }
+                                                FinaAmtTotal += FineAmt;
+                                            }
+                                            <td>@FineDays</td>
+                                            <td>@FineAmt</td>
+                                        }
+                                    </tr>
+                                            }
+                                            <tr style="font-weight:bold;">
+                                                <td colspan="8" style="text-align:right;">Total : </td>
+                                                <td>@FinaAmtTotal</td>
+                                            </tr>
+                                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+                                            }
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

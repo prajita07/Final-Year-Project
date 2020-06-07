@@ -1,0 +1,268 @@
+﻿@model LMSSoft_Library.Models.BookIssueVModel
+
+@{
+    ViewData["Title"] = "Issue";
+}
+
+
+<div class="row">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="@Url.Action("Index","Home")">Home</a>
+            </li>
+            <li>
+                <a href="#">Library</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Issue","Book")">Book Issue</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<br />
+
+<div class="main_content well">
+    <form asp-controller="Student" asp-action="Create" method="post">
+        <script src="~/Content/js/jquery-ui.min.js"></script>
+
+        <div class="form-group">
+            <div class="row">
+                @using (Html.BeginForm("Issue", "Book", FormMethod.Post, new { @id = "form-submit" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="col-sm-2 form-group">
+                        @Html.LabelFor(m => m.Issue_Date, new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.Issue_Date, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "Date", @readonly = "readonly", @tabindex = "-1" })
+                        @Html.ValidationMessageFor(m => m.Issue_Date, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-1 form-group">
+                        @Html.LabelFor(m => m.Due_Days, new { @class = "form-label" })
+                        @Html.EditorFor(m => m.Due_Days, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(m => m.Due_Days, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-2 form-group">
+                        @Html.LabelFor(m => m.IssueTo, new { @class = "form-label" })
+                        @Html.DropDownListFor(m => m.IssueTo, (SelectList)ViewBag.lstIssuTo, htmlAttributes : new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.IssueTo, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-sm-3 form-group" id="dvStaffCode">
+                        @Html.LabelFor(m => m.StaffCode, new { @class = "form-label" })
+                        @Html.EditorFor(m => m.StaffCode, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(m => m.StaffCode, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-4 form-group" id="dvStaffName">
+                        @Html.LabelFor(m => m.StaffName, new { @class = "form-label" })
+                        @Html.EditorFor(m => m.StaffName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @tabindex = "-1" } })
+                        @Html.ValidationMessageFor(m => m.StaffName, "", new { @class = "text-danger" })
+                    </div>
+
+
+                    <div class="col-sm-3 form-group" id="dvStudCode">
+                        @Html.LabelFor(m => m.StudCode, new { @class = "form-label" })
+                        @Html.EditorFor(m => m.StudCode, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(m => m.StudCode, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-4 form-group" id="dvStudName">
+                        @Html.LabelFor(m => m.StudName, new { @class = "form-label" })
+                        @Html.EditorFor(m => m.StudName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @tabindex = "-1" } })
+                        @Html.ValidationMessageFor(m => m.StudName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-sm-3 form-group" id="dvStudFaculty">
+                        @Html.LabelFor(m => m.Faculty, new { @class = "form-label" })
+                        @Html.EditorFor(m => m.Faculty, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @tabindex = "-1" } })
+                        @Html.ValidationMessageFor(m => m.Faculty, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-3 form-group" id="dvStudCourse">
+                        @Html.LabelFor(m => m.Course, new { @class = "form-label" })
+                        @Html.EditorFor(m => m.Course, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @tabindex = "-1" } })
+                        @Html.ValidationMessageFor(m => m.Course, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-2 form-group" id="dvStudSem">
+                        @Html.LabelFor(m => m.Semester, new { @class = "form-label" })
+                        @Html.EditorFor(m => m.Semester, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @tabindex = "-1" } })
+                        @Html.ValidationMessageFor(m => m.Semester, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-2 form-group" id="dvStudSec">
+                        @Html.LabelFor(m => m.Section, new { @class = "form-label" })
+                        @Html.EditorFor(m => m.Section, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @tabindex = "-1" } })
+                        @Html.ValidationMessageFor(m => m.Section, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-2 form-group" id="dvStudRoll">
+                        @Html.LabelFor(m => m.RollNo, new { @class = "form-label" })
+                        @Html.EditorFor(m => m.RollNo, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @tabindex = "-1" } })
+                        @Html.ValidationMessageFor(m => m.RollNo, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-2 form-group">
+                        @Html.LabelFor(m => m.AccessionNo, new { @class = "form-label" })
+                        @Html.EditorFor(m => m.AccessionNo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(m => m.AccessionNo, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-2 form-group">
+                        @Html.LabelFor(m => m.ISBN_NO, new { @class = "form-label" })
+                        @Html.EditorFor(m => m.ISBN_NO, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @tabindex = "-1" } })
+                        @Html.ValidationMessageFor(m => m.ISBN_NO, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        @Html.LabelFor(m => m.BookTitle, new { @class = "form-label" })
+                        @Html.EditorFor(m => m.BookTitle, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @tabindex = "-1" } })
+                        @Html.ValidationMessageFor(m => m.BookTitle, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        @Html.LabelFor(m => m.BookAuthor, new { @class = "form-label" })
+                        @Html.EditorFor(m => m.BookAuthor, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @tabindex = "-1" } })
+                        @Html.ValidationMessageFor(m => m.BookAuthor, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        @Html.LabelFor(m => m.Remarks, new { @class = "form-label" })
+                        @Html.EditorFor(m => m.Remarks, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(m => m.Remarks, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        <br />
+                        <button type="Submit" class="btn btn-sm btn-info">Issue</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </form>
+
+</div>
+@*<div class="bottom">
+        <a href="@Url.Action("Index","BookRegistration")">Back to List</a>
+    </div>*@
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+
+        $(window).load(function () {
+            changeView();
+        });
+        function changeView() {
+            if ($("#IssueTo").val() == "Student") {
+                $("#dvStaffCode").hide();
+                $("#dvStaffName").hide();
+
+                $("#dvStudCode").show();
+                $("#dvStudName").show();
+                $("#dvStudFaculty").show();
+                $("#dvStudCourse").show();
+                $("#dvStudSem").show();
+                $("#dvStudSec").show();
+                $("#dvStudRoll").show();
+            } else {
+                $("#dvStaffCode").show();
+                $("#dvStaffName").show();
+
+                $("#dvStudCode").hide();
+                $("#dvStudName").hide();
+                $("#dvStudFaculty").hide();
+                $("#dvStudCourse").hide();
+                $("#dvStudSem").hide();
+                $("#dvStudSec").hide();
+                $("#dvStudRoll").hide();
+            }
+        };
+        $("#IssueTo").change(function () {
+            changeView();
+        });
+        $("#StudCode").autocomplete({
+            source: '@Url.Action("GetStudentList")',
+            autoFocus: true,
+            change: function (event, ui) {
+                if ($("#StudCode").val().indexOf("--") != -1) {
+                    $("#StudCode").val($("#StudCode").val().substring(0, $("#StudCode").val().indexOf("--")));
+                    LoadStudentData();
+                } else {
+                    $("#StudCode").val('');
+                    alert('Invalid Student Code.');
+                }
+            }
+        });
+        $("#StaffCode").autocomplete({
+            source: '@Url.Action("GetStaffList")',
+            autoFocus: true,
+            change: function (event, ui) {
+                if ($("#StaffCode").val().indexOf("--") != -1) {
+                    $("#StaffName").val($("#StaffCode").val().substring($("#StaffCode").val().indexOf("--"), $("#StaffCode").val().toString().length));
+                    $("#StaffCode").val($("#StaffCode").val().substring(0, $("#StaffCode").val().indexOf("--")));
+                } else {
+                    $("#StaffCode").val('');
+                    alert('Invalid Staff Code.');
+                }
+            }
+        });
+        $("#AccessionNo").autocomplete({
+            source: '@Url.Action("GetBooksList")',
+            autoFocus: true,
+            change: function (event, ui) {
+                $('#ISBN_NO').val('');
+                $("#BookTitle").val('');
+                $("#BookAuthor").val('');
+
+                var data = { accno: $("#AccessionNo").val() };
+                $.ajax({
+                    type: "Post",
+                    url: "@Url.Action("GetBookDetails", "Book")",
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(data),
+                    datatype: "json",
+                    success: function (json) {
+                        if (json != null && json.rescode == "400") {
+                            $('#ISBN_NO').val(json.isbnno);
+                            $("#BookTitle").val(json.title);
+                            $("#BookAuthor").val(json.author);
+                            $("#Remarks").focus();
+                        } else {
+                            $("#AccessionNo").val('');
+                            alert('Record not found.');
+                        }
+                    },
+                    error: function (json2) {
+                        alert('Something went wrong, please try again later.');
+                        $("#AccessionNo").val('');
+                    }
+                });
+            }
+        });
+
+        function LoadStudentData() {
+            $('#StudName').val('');
+            $("#Faculty").val('');
+            $("#Course").val('');
+            $("#Semester").val('');
+            $("#Section").val('');
+            $("#RollNo").val('');
+            if ($("#StudCode").val() != "") {
+                var data = { studcode: $("#StudCode").val() };
+                $.ajax({
+                    type: "Post",
+                    url: "@Url.Action("GetStudentDetails", "Book")",
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(data),
+                    datatype: "json",
+                    success: function (json) {
+                        if (json != null && json.rescode == "400") {
+                            $('#StudName').val(json.name);
+                            $("#Faculty").val(json.faculty);
+                            $("#Course").val(json.course);
+                            $("#Semester").val(json.sem);
+                            $("#Section").val(json.section);
+                            $("#RollNo").val(json.rollno);
+                            $("#AccessionNo").focus();
+                        }
+                    },
+                    error: function (json2) {
+                        alert('Something went wrong, please try again later.');
+                        $("#StudCode").val('');
+                    }
+                });
+            }
+        }
+    </script>
+}

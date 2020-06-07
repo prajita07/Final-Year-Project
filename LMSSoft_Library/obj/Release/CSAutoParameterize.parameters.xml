@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DataBaseContext-Web.config Connection String" description="DataBaseContext Connection String used in web.config by the application to access the database." defaultValue="server=.\SQL12; database=DBLMS; integrated security=false; User Id=sa;Password=123; MultipleActiveResultSets=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\Working\ Project\\LMSSoft_Library\\LMSSoft_Library\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DataBaseContext']/@connectionString" />
+  </parameter>
+</parameters>

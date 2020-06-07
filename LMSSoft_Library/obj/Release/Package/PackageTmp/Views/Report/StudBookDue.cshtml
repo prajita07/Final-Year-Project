@@ -1,0 +1,129 @@
+﻿@model LMSSoft_Library.Models.StudentDueBookVModel
+
+@{
+    var lstData = (List<LMSSoft_Library.Models.StudentDueBookList>)ViewBag.lstData;
+
+    ViewData["Title"] = "Student Due Books";
+}
+
+<div class="row">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="@Url.Action("Index","Home")">Home</a>
+            </li>
+            <li>
+                <a href="#">Reports</a>
+            </li>
+            <li>
+                <a href="@Url.Action("StudBookDue","Report")">Student Due Books</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<br />
+
+<div class="main_content well">
+    <script src="~/Content/js/jquery-ui.min.js"></script>
+
+    <div class="form-group">
+        <div class="row">
+            @using (Html.BeginForm("StudBookDue", "Report", FormMethod.Post, new { @id = "form-submit" }))
+            {
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.StudCode, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.StudCode, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.StudCode, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    <br />
+                    <button type="Submit" class="btn btn-sm btn-info" value="create">Search</button>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.FullName, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.FullName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.MobileNo, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.MobileNo, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.Faculty, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.Faculty, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.Course, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.Course, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+                <div class="col-sm-2 form-group">
+                    @Html.LabelFor(m => m.Semester, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.Semester, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+                <div class="col-sm-2 form-group">
+                    @Html.LabelFor(m => m.Section, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.Section, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+                <div class="col-sm-2 form-group">
+                    @Html.LabelFor(m => m.Roll_No, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.Roll_No, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            }
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>SN.</th>
+                    <th>Issue Date</th>
+                    <th>Accession No</th>
+                    <th>ISBN No.</th>
+                    <th>Category</th>
+                    <th>Book Title</th>
+                    <th>Book Author</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    if (lstData != null)
+                    {
+                        int i = 0;
+                        foreach (var item in lstData)
+                        {
+                            i++;
+                            <tr>
+                                <td>@i</td>
+                                <td>@(Convert.ToDateTime(item.Issue_Date).ToString("yyyy-MM-dd"))</td>
+                                <td>@item.AccessionNo</td>
+                                <td>@item.ISBN_NO</td>
+                                <td>@item.BookCategory</td>
+                                <td>@item.BookTitle</td>
+                                <td>@item.AuthorName</td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+    $("#StudCode").autocomplete({
+            source: '@Url.Action("GetStudentList")',
+            autoFocus: true,
+            change: function (event, ui) {
+                if ($("#StudCode").val().indexOf("--") != -1) {
+                    $("#StudCode").val($("#StudCode").val().substring(0, $("#StudCode").val().indexOf("--")));
+                } else {
+                    $("#StudCode").val('');
+                    alert('Invalid Student Code.');
+                }
+            }
+        });
+    </script>
+}

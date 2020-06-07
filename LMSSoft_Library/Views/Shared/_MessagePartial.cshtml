@@ -1,0 +1,9 @@
+﻿@if (TempData["UserMessage"] != null)
+{
+    var message = (LMSSoft_Library.Controllers.Message)TempData["UserMessage"];
+    <div class="alert alert-dismissible @message.CssClass">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><i class="icon fa fa-check"></i> @message.Title</h4>
+        @message.MessageText
+    </div>
+}

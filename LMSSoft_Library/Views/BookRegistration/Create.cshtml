@@ -1,0 +1,160 @@
+﻿@model LMSSoft_Library.Models.BookRegistrationVModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="@Url.Action("Index","Home")">Home</a>
+            </li>
+            <li>
+                <a href="#">Library</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Create","BookRegistration")">Book Registration</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<br />
+
+<div class="main_content well">
+    <script src="~/Content/js/jquery-ui.min.js"></script>
+
+    <div class="form-group">
+        <div class="row">
+            @using (Html.BeginForm("Create", "BookRegistration", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.EntryDate, new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.EntryDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "Date" })
+                    @Html.ValidationMessageFor(m => m.EntryDate, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.AccessionNo, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.AccessionNo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.AccessionNo, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.ISBN_NO, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.ISBN_NO, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.ISBN_NO, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.BookCategory, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.BookCategory, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.BookCategory, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.BookTitle, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.BookTitle, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.BookTitle, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.Book_SubTitle, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.Book_SubTitle, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.Book_SubTitle, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.AuthorName, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.AuthorName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.AuthorName, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.PublisherName, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.PublisherName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.PublisherName, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.PublishedYear, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.PublishedYear, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.PublishedYear, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.Edition, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.Edition, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.Edition, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.NoOfPage, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.NoOfPage, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.NoOfPage, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.Price, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.Price, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.PurchaseDate, new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.PurchaseDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "Date" })
+                    @Html.ValidationMessageFor(m => m.PurchaseDate, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.Status, new { @class = "form-label" })
+                    @Html.DropDownListFor(m => m.Status, (SelectList)ViewBag.lstStatus, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Status, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.Remarks, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.Remarks, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.Remarks, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    <br />
+                    <button type="Submit" class="btn btn-sm btn-info">Submit</button>
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(model => model.ImagePath, htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.ImagePath, new { type = "file", name = "ImagePath", accept = "image/*", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ImagePath, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    <img src="@(Model.ImagePath == null ? "" : Url.Content(Model.ImagePath))" width="200" height="200" style="border: 1px solid #4e3939; border-radius: 7px;" />
+                </div>
+                }
+        </div>
+    </div>
+
+</div>
+<div class="bottom">
+    <a href="@Url.Action("Index","BookRegistration")">Back to List</a>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $("#BookCategory").autocomplete({
+            source: '@Url.Action("GetBookCategory")',
+            autoFocus: true
+        });
+        $("#BookTitle").autocomplete({
+            source: '@Url.Action("GetBookTitle")',
+            autoFocus: true
+        });
+        $("#Book_SubTitle").autocomplete({
+            source: '@Url.Action("GetBook_SubTitle")',
+            autoFocus: true
+        });
+        $("#AuthorName").autocomplete({
+            source: '@Url.Action("GetAuthorName")',
+            autoFocus: true
+        });
+        $("#PublisherName").autocomplete({
+            source: '@Url.Action("GetPublisherName")',
+            autoFocus: true
+        });
+        $("#Edition").autocomplete({
+            source: '@Url.Action("GetEdition")',
+            autoFocus: true
+        });
+    </script>
+}

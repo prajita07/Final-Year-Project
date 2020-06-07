@@ -1,0 +1,185 @@
+﻿@model IEnumerable<LMSSoft_Library.Models.Staffs>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<div class="row">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="@Url.Action("Index","Home")">Home</a>
+            </li>
+            <li>
+                <a href="#">Staff/Teacher</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index","Staff")">List</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<br />
+<div class="main_content well">
+
+    <div class="form-group">
+        <div class="row">
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>SN.</th>
+                        <th>Code</th>
+                        <th>Full Name</th>
+                        <th>Father Name</th>
+                        <th>Address</th>
+                        <th>Mobile No.</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        if (Model != null)
+                        {
+                            int i = 0;
+                            foreach (var item in Model)
+                            {
+                                i++;
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@item.Staff_Code</td>
+                                    <td>@item.Full_Name</td>
+                                    <td>@item.Father_Name</td>
+                                    <td>@item.Address</td>
+                                    <td>@item.Mobile_No</td>
+                                    <td>
+                                        <a href="@Url.Action("Create", "Staff", new { Id = item.Id })" class="btn btn-xs btn-primary" title="Edit"><i class="fa fa-edit"></i></a>
+                                        <a href="#" class="btn btn-xs btn-pruple" title="Details" onclick="ShowDetails(@item.Id);"><i class="fa fa-eye"></i></a>
+                                        <a href="@Url.Action("Create", "Staff", new { Id = item.Id })" onclick="if (confirm('Are You Sure?')) { return true;}else{return false;}" class="btn btn-xs btn-danger" title="Delete"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalData" role="dialog">
+    <div class="modal-dialog" style="width:55%;">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                    Staff Details
+                </h4>
+            </div>
+            <div class="modal-body">
+                <span id="test"></span>
+                <div class="row">
+                    <div class="col-md-4">
+                        Join Date :<br />
+                        <input id="dJoinDate" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Staff Code :<br />
+                        <input id="dStaffCode" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Full Name :<br />
+                        <input id="dFullName" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Father Name :<br />
+                        <input id="dFatherName" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Address :<br />
+                        <input id="dAddress" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Mobile No. :<br />
+                        <input id="dMobileNo" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Email :<br />
+                        <input id="dEmail" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Date of Birth :<br />
+                        <input id="dDOB" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Faculty :<br />
+                        <input id="dFaculty" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Designation :<br />
+                        <input id="dDesignation" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Staff Image :<br />
+                        <img id="dImage" src="" width="200" height="200" style="border: 1px solid #4e3939; border-radius: 7px;" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryv")
+
+    <script>
+        function ShowDetails(val) {
+            if (val == null) {
+                alert("Invalid Staff Id.");
+                return false;
+            }
+            var data = { id: val };
+                $.ajax({
+                    type: "Post",
+                    url: "@Url.Action("GetDetails", "Staff")",
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(data),
+                    datatype: "json",
+                    success: function (response) {
+                        if (response != null && response.success) {
+                            $("#dJoinDate").val(response.joindate);
+                            $("#dStaffCode").val(response.staffcode);
+                            $("#dFullName").val(response.fullname);
+                            $("#dFatherName").val(response.fathername);
+                            $("#dAddress").val(response.address);
+                            $("#dMobileNo").val(response.mobileno);
+                            $("#dEmail").val(response.email);
+                            $("#dDOB").val(response.dob);
+                            $("#dFaculty").val(response.faculty);
+                            $("#dDesignation").val(response.designation);
+                            $("#dImage").attr('src', '../../Uploads/StaffImage/' + response.staffcode + response.imgpath);
+                            $('#modalData').modal('show');
+                        } else {
+                            alert(response.responseText);
+                        }
+                    },
+                    error: function (response) {
+                        alert("Something went wrong, please try again later.");
+                    }
+            });
+        }
+    </script>
+
+}

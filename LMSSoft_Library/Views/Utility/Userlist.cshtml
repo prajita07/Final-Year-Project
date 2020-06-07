@@ -1,0 +1,74 @@
+﻿@model IEnumerable<LMSSoft_Library.Models.UserLoginModel>
+
+@{
+    ViewData["Title"] = "User List";
+}
+
+<div class="row">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="@Url.Action("Index","Home")">Home</a>
+            </li>
+            <li>
+                <a href="#">Utility</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Userlist","Utility")">User List</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<br />
+
+<div class="main_content well">
+
+    <div class="form-group">
+        <div class="row">
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>SN.</th>
+                        <th>Full Name</th>
+                        <th>Login Name</th>
+                        <th>Mobile No.</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        if (Model != null)
+                        {
+                            int i = 0;
+                            foreach (var item in Model)
+                            {
+                                i++;
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@item.Full_Name</td>
+                                    <td>@item.Login_Name</td>
+                                    <td>@item.Mobile_No</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.User_Status</td>
+                                    <td>
+                                        <a href="@Url.Action("UserReg", "Utility", new { Id = item.ID })" class="btn btn-xs btn-primary" title="Edit"><i class="fa fa-edit"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryv")
+}

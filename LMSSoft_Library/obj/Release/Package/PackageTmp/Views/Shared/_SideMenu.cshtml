@@ -1,0 +1,176 @@
+﻿
+<div id="sidebar" class="sidebar    responsive   ace-save-state">
+    <script type="text/javascript">
+        try { ace.settings.loadState('sidebar') } catch (e) { }
+    </script>
+
+    <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+
+        <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+            <span class="btn btn-success"></span>
+
+            <span class="btn btn-info"></span>
+
+            <span class="btn btn-warning"></span>
+
+            <span class="btn btn-danger"></span>
+        </div>
+    </div><!-- /.sidebar-shortcuts -->
+
+    <ul class="nav nav-list">
+        <li class="">
+            <a href="@Url.Action("Index", "Home")">
+                <i class="menu-icon fa fa-tachometer"></i>
+                <span class="menu-text">Dashboard </span>
+            </a>
+
+            <b class="arrow"></b>
+        </li>
+
+        <li class="">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-users"></i>
+                <span class="menu-text"> Student Info </span>
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+            <ul class="submenu">
+                <li class="">
+                    <a href="@Url.Action( "Create", "Student")">
+                        <i class="menu-icon fa fa-caret-right"></i> Student Registration
+                    </a>
+                </li>
+                <li class="">
+                    <a href="@Url.Action( "Index", "Student")">
+                        <i class="menu-icon fa fa-caret-right"></i>  Student List
+                    </a>
+                </li>
+            </ul>
+            <b class="arrow"></b>
+        </li>
+
+        <li class="">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-user"></i>
+                <span class="menu-text"> Staff / Teacher </span>
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+            <ul class="submenu">
+                <li class="">
+                    <a href="@Url.Action( "Create", "Staff")">
+                        <i class="menu-icon fa fa-caret-right"></i> Registration
+                    </a>
+                </li>
+                <li class="">
+                    <a href="@Url.Action( "Index", "Staff")">
+                        <i class="menu-icon fa fa-caret-right"></i>  List
+                    </a>
+                </li>
+            </ul>
+            <b class="arrow"></b>
+        </li>
+
+        <li class="">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-pencil-square-o"></i>
+                <span class="menu-text"> Library </span>
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+            <b class="arrow"></b>
+            <ul class="submenu">
+                <li class="">
+                    <a href="@Url.Action( "Create", "BookRegistration")">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Book Registration
+                    </a>
+                </li>
+                <li class="">
+                    <a href="@Url.Action( "Index", "BookRegistration")">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Book List
+                    </a>
+                </li>
+                <li class="">
+                    <a href="@Url.Action( "Issue", "Book")">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Book Issue
+                    </a>
+                </li>
+                <li class="">
+                    <a href="@Url.Action( "Return", "Book")">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Book Return
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-bar-chart-o"></i>
+                <span class="menu-text"> Reports </span>
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+            <b class="arrow"></b>
+            <ul class="submenu">
+                <li class="">
+                    <a href="@Url.Action( "StudBookDue", "Report")">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Student Due Books
+                    </a>
+                </li>
+                <li class="">
+                    <a href="@Url.Action( "DueBookList", "Report")">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Due Books List
+                    </a>
+                </li>
+                <li class="">
+                    <a href="@Url.Action( "FineReport", "Report")">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Fine Collection
+                    </a>
+                </li>
+                <li class="">
+                    <a href="@Url.Action( "StudentwiseFineReport", "Report")">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Fine Collection Studentwise
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-gears"></i>
+                <span class="menu-text"> Utility </span>
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+            <b class="arrow"></b>
+            <ul class="submenu">
+                <li class="">
+                    <a href="@Url.Action( "Userlist", "Utility")">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Users list
+                    </a>
+                </li>
+                <li class="">
+                    <a href="@Url.Action( "UserReg", "Utility")">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Users Registration
+                    </a>
+                </li>
+                <li class="">
+                    <a href="@Url.Action( "SemesterUpgrade", "Utility")">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Semester Upgrade
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+    </ul><!-- /.nav-list -->
+
+    <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+        <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+    </div>
+</div>

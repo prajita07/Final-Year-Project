@@ -1,0 +1,132 @@
+﻿@model LMSSoft_Library.Models.StudentRegistrationVModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="@Url.Action("Index","Home")">Home</a>
+            </li>
+            <li>
+                <a href="#">Student Info</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Create","Student")">Student Registration</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<br />
+
+<div class="main_content well">
+    <script src="~/Content/js/jquery-ui.min.js"></script>
+
+    <div class="form-group">
+        <div class="row">
+            @using (Html.BeginForm("Create", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.AdmissionDate, new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.AdmissionDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "Date" })
+                    @Html.ValidationMessageFor(m => m.AdmissionDate, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.StudCode, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.StudCode, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.StudCode, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.FullName, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.FullName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.FatherName, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.FatherName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.FatherName, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.Address, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.Address, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.MobileNo, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.MobileNo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.MobileNo, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.BirthDate, new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.BirthDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "Date" })
+                    @Html.ValidationMessageFor(m => m.BirthDate, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.FacultyId, new { @class = "form-label" })
+                    @Html.DropDownListFor(m => m.FacultyId, (SelectList)ViewBag.lstFaculty, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.FacultyId, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.CourseId, new { @class = "form-label" })
+                    @Html.DropDownListFor(m => m.CourseId, (SelectList)ViewBag.lstCourse, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.CourseId, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.SemesterId, new { @class = "form-label" })
+                    @Html.DropDownListFor(m => m.SemesterId, (SelectList)ViewBag.lstSemester, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.SemesterId, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.Year, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.Year, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.Year, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.SectionId, new { @class = "form-label" })
+                    @Html.DropDownListFor(m => m.SectionId, (SelectList)ViewBag.lstSection, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.SectionId, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(m => m.Roll_No, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.Roll_No, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.Roll_No, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group">
+                    @Html.LabelFor(model => model.ImagePath, htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.ImagePath, new { type = "file", name = "ImagePath", accept = "image/*", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ImagePath, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    <br />
+                    <button type="Submit" class="btn btn-sm btn-info">Submit</button>
+                </div>
+
+                <div class="col-sm-4 form-group"></div>
+
+                <div class="col-sm-4 form-group">
+                    <img src="@(Model.ImagePath == null ? "" : Url.Content(Model.ImagePath))" width="200" height="200" style="border: 1px solid #4e3939; border-radius: 7px;" />
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+<div class="bottom">
+    <a href="@Url.Action("Index","Student")">Back to List</a>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

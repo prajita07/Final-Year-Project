@@ -1,0 +1,220 @@
+﻿@model IEnumerable<LMSSoft_Library.Models.BooKRegistration>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<div class="row">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="@Url.Action("Index","Home")">Home</a>
+            </li>
+            <li>
+                <a href="#">Library</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index","BookRegistration")">Book List</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<br />
+
+<div class="main_content well">
+
+    <div class="form-group">
+        <div class="row">
+            @using (Html.BeginForm("Index", "BookRegistration", FormMethod.Post, null))
+            {
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="SearchValue" placeholder="Enter Accession No. / ISBN No. / Category / Book Title / Author Name" />
+                </div>
+                <div class="col-md-4">
+                    <input type="submit" class="btn btn-sm btn-primary" value="Search" />
+                </div>
+            }
+            <table id="dynamic-table" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>SN.</th>
+                        <th>Accession No.</th>
+                        <th>ISBN No.</th>
+                        <th>Category</th>
+                        <th>Book Title</th>
+                        <th>Author Name</th>
+                        <th>Publisher Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        if (Model != null)
+                        {
+                            int i = 0;
+                            foreach (var item in Model)
+                            {
+                                i++;
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@item.AccessionNo</td>
+                                    <td>@item.ISBN_NO</td>
+                                    <td>@item.BookCategory</td>
+                                    <td>@item.BookTitle</td>
+                                    <td>@item.AuthorName</td>
+                                    <td>@item.PublisherName</td>
+                                    <td>
+                                        <a href="@Url.Action("Create", "BookRegistration", new { Id = item.Id })" class="btn btn-xs btn-primary" title="Edit"><i class="fa fa-edit"></i></a>
+                                        <a href="#" class="btn btn-xs btn-pruple" title="Details" onclick="ShowBookDetails(@item.Id);"><i class="fa fa-eye"></i></a>
+                                        <a href="@Url.Action("Create", "BookRegistration", new { Id = item.Id })" onclick="if (confirm('Are You Sure?')) { return true;}else{return false;}" class="btn btn-xs btn-danger" title="Delete"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalData" role="dialog">
+    <div class="modal-dialog" style="width:55%;">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                    Book Details
+                </h4>
+            </div>
+            <div class="modal-body">
+                <span id="test"></span>
+                <div class="row">
+                    <div class="col-md-4">
+                        Entry Date :<br />
+                        <input id="dEntryDate" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Accession No. :<br />
+                        <input id="dAccNo" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        ISBN No. :<br />
+                        <input id="dISBNNo" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Category :<br />
+                        <input id="dCategory" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Book Title :<br />
+                        <input id="dTitle" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Classification No. :<br />
+                        <input id="dSubTitle" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Author Name :<br />
+                        <input id="dAuthor" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Publisher Name :<br />
+                        <input id="dPubisher" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Published Year :<br />
+                        <input id="dPubYear" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Edition :<br />
+                        <input id="dEdition" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        No. of Page :<br />
+                        <input id="dNoOfPage" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Price :<br />
+                        <input id="dPrice" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Purchase Date :<br />
+                        <input id="dPurchaseDate" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Status :<br />
+                        <input id="dStatus" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Remarks :<br />
+                        <input id="dRemarks" class="form-control" readonly />
+                    </div>
+                    <div class="col-md-4">
+                        Book Image :<br />
+                        <img id="dImage" src="" width="200" height="200" style="border: 1px solid #4e3939; border-radius: 7px;" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryv")
+
+    <script>
+        function ShowBookDetails(val) {
+            if (val == null) {
+                alert("Invalid Book Id.");
+                return false;
+            }
+            var data = { id: val };
+                $.ajax({
+                    type: "Post",
+                    url: "@Url.Action("GetBookDetails", "BookRegistration")",
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(data),
+                    datatype: "json",
+                    success: function (response) {
+                        if (response != null && response.success) {
+                            $("#dEntryDate").val(response.entDate);
+                            $("#dAccNo").val(response.accno);
+                            $("#dISBNNo").val(response.isbn);
+                            $("#dCategory").val(response.category);
+                            $("#dTitle").val(response.title);
+                            $("#dSubTitle").val(response.subtitle);
+                            $("#dAuthor").val(response.author);
+                            $("#dPubisher").val(response.publisher);
+                            $("#dPubYear").val(response.pubyear);
+                            $("#dEdition").val(response.edition);
+                            $("#dNoOfPage").val(response.noofpage);
+                            $("#dPrice").val(response.price);
+                            $("#dPurchaseDate").val(response.purdate);
+                            $("#dStatus").val(response.status);
+                            $("#dRemarks").val(response.remarks);
+                            $("#dImage").attr('src', '../../Uploads/BookImage/' + response.accno + response.imgpath);
+                            $('#modalData').modal('show');
+                        } else {
+                            alert(response.responseText);
+                        }
+                    },
+                    error: function (response) {
+                        alert("Something went wrong, please try again later.");
+                    }
+            });
+        }
+    </script>
+
+}

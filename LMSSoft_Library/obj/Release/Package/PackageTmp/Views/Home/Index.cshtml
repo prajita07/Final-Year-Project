@@ -1,0 +1,89 @@
+﻿@model LMSSoft_Library.Models.Dashboard
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+<div class="page-header">
+    <h1>
+        Dashboard
+    </h1>
+</div>
+
+
+
+<div class="row">
+    <div class="space-6"></div>
+
+    <div class="col-md-12 infobox-container">
+        <div class="infobox infobox-green" style="margin:10px;">
+            <div class="infobox-icon">
+                <i class="ace-icon fa fa-book"></i>
+            </div>
+
+            <div class="infobox-data">
+                <span class="infobox-data-number">@Model.TotalBooks</span>
+                <div class="infobox-content">Total No. Of Books</div>
+            </div>
+        </div>
+
+        <div class="infobox infobox-green" style="margin:10px;">
+            <div class="infobox-icon">
+                <i class="ace-icon fa fa-book"></i>
+            </div>
+
+            <div class="infobox-data">
+                <span class="infobox-data-number">@Model.TotalBooksCategory</span>
+                <div class="infobox-content">Total Books Category</div>
+            </div>
+        </div>
+
+
+        <div class="infobox infobox-blue" style="margin:10px;">
+            <div class="infobox-icon">
+                <i class="ace-icon fa fa-align-center"></i>
+            </div>
+
+            <div class="infobox-data">
+                <span class="infobox-data-number">@Model.TotalIssue</span>
+                <div class="infobox-content">Total Issued Books</div>
+            </div>
+
+        </div>
+
+        <div class="infobox infobox-pink" style="margin:10px;">
+            <div class="infobox-icon">
+                <i class="ace-icon fa fa-users"></i>
+            </div>
+
+            <div class="infobox-data">
+                <span class="infobox-data-number">@Model.TotalStudent</span>
+                <div class="infobox-content">Total No. Of Students</div>
+            </div>
+        </div>
+
+        <div class="infobox infobox-red" style="margin:10px;">
+            <div class="infobox-icon">
+                <i class="ace-icon fa fa-user"></i>
+            </div>
+
+            <div class="infobox-data">
+                <span class="infobox-data-number">@Model.TotalStaff</span>
+                <div class="infobox-content">Total No. Of Staffs</div>
+            </div>
+        </div>
+
+        <div class="infobox infobox-orange2" style="margin:10px;">
+            <div class="infobox-icon">
+                <i class="ace-icon fa fa-list-alt"></i>
+            </div>
+
+            <div class="infobox-data">
+                <span class="infobox-data-number">@(Model.TotalBooks - Model.TotalIssue)</span>
+                <div class="infobox-content">Available Books</div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

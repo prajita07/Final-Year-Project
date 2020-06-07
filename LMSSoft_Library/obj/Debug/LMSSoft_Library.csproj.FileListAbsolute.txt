@@ -1,0 +1,139 @@
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\ApplicationInsights.config
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\LMSSoft_Library.dll.config
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\LMSSoft_Library.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\LMSSoft_Library.pdb
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\Antlr3.Runtime.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\EntityFramework.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\EntityFramework.SqlServer.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\Microsoft.AI.DependencyCollector.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\Microsoft.AI.Web.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\Microsoft.AI.WindowsServer.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\Microsoft.ApplicationInsights.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\Microsoft.Web.Infrastructure.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\Newtonsoft.Json.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\System.Web.Helpers.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\System.Web.Mvc.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\System.Web.Optimization.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\System.Web.Razor.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\System.Web.WebPages.Deployment.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\System.Web.WebPages.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\System.Web.WebPages.Razor.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\WebGrease.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\EntityFramework.xml
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\EntityFramework.SqlServer.xml
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\System.Web.Helpers.xml
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\System.Web.Mvc.xml
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\System.Web.Optimization.xml
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\System.Web.Razor.xml
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\System.Web.WebPages.xml
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\System.Web.WebPages.Deployment.xml
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\System.Web.WebPages.Razor.xml
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\Antlr3.Runtime.pdb
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\Newtonsoft.Json.xml
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\Microsoft.ApplicationInsights.xml
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\Microsoft.AI.DependencyCollector.xml
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\Microsoft.AI.WindowsServer.xml
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\bin\Microsoft.AI.Web.xml
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\obj\Debug\LMSSoft_Library.csproj.CoreCompileInputs.cache
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\obj\Debug\LMSSoft_Library.dll
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\obj\Debug\LMSSoft_Library.pdb
+E:\Working Project\LMSSoft_Library\LMSSoft_Library\obj\Debug\LMSSoft_Library.csprojResolveAssemblyReference.cache
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\ApplicationInsights.config
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\LMSSoft_Library.dll.config
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\LMSSoft_Library.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\LMSSoft_Library.pdb
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\Antlr3.Runtime.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\EntityFramework.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\EntityFramework.SqlServer.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\Microsoft.AI.DependencyCollector.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\Microsoft.AI.Web.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\Microsoft.AI.WindowsServer.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\Microsoft.ApplicationInsights.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\Microsoft.Web.Infrastructure.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\Newtonsoft.Json.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\System.Web.Helpers.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\System.Web.Mvc.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\System.Web.Optimization.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\System.Web.Razor.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\System.Web.WebPages.Deployment.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\System.Web.WebPages.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\System.Web.WebPages.Razor.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\WebGrease.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\EntityFramework.xml
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\EntityFramework.SqlServer.xml
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\System.Web.Helpers.xml
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\System.Web.Mvc.xml
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\System.Web.Optimization.xml
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\System.Web.Razor.xml
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\System.Web.WebPages.xml
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\System.Web.WebPages.Deployment.xml
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\System.Web.WebPages.Razor.xml
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\Antlr3.Runtime.pdb
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\Newtonsoft.Json.xml
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\Microsoft.ApplicationInsights.xml
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\Microsoft.AI.DependencyCollector.xml
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\Microsoft.AI.WindowsServer.xml
+E:\Working Others\Prajita Project\LMSSoft_Library\bin\Microsoft.AI.Web.xml
+E:\Working Others\Prajita Project\LMSSoft_Library\obj\Debug\LMSSoft_Library.csprojResolveAssemblyReference.cache
+E:\Working Others\Prajita Project\LMSSoft_Library\obj\Debug\LMSSoft_Library.csproj.CoreCompileInputs.cache
+E:\Working Others\Prajita Project\LMSSoft_Library\obj\Debug\LMSSoft_Library.dll
+E:\Working Others\Prajita Project\LMSSoft_Library\obj\Debug\LMSSoft_Library.pdb
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\ApplicationInsights.config
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\LMSSoft_Library.dll.config
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\LMSSoft_Library.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\LMSSoft_Library.pdb
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\Antlr3.Runtime.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\EntityFramework.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\EntityFramework.SqlServer.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\Microsoft.AI.Web.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\Microsoft.ApplicationInsights.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\Newtonsoft.Json.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\System.Web.Helpers.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\System.Web.Mvc.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\System.Web.Optimization.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\System.Web.Razor.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\System.Web.WebPages.Deployment.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\System.Web.WebPages.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\System.Web.WebPages.Razor.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\WebGrease.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\EntityFramework.xml
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\EntityFramework.SqlServer.xml
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\System.Web.Helpers.xml
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\System.Web.Mvc.xml
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\System.Web.Optimization.xml
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\System.Web.Razor.xml
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\System.Web.WebPages.xml
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\System.Web.WebPages.Deployment.xml
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\System.Web.WebPages.Razor.xml
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\Antlr3.Runtime.pdb
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\Newtonsoft.Json.xml
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\Microsoft.ApplicationInsights.xml
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\bin\Microsoft.AI.Web.xml
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\obj\Debug\LMSSoft_Library.csprojAssemblyReference.cache
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\obj\Debug\LMSSoft_Library.csproj.CoreCompileInputs.cache
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\obj\Debug\LMSSoft_Library.csproj.CopyComplete
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\obj\Debug\LMSSoft_Library.dll
+C:\Users\prajita\Desktop\LMS_Project\LMSSoft_Library\obj\Debug\LMSSoft_Library.pdb

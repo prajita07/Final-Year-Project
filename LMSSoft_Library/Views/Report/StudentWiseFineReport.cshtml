@@ -1,0 +1,166 @@
+﻿@model LMSSoft_Library.Models.BookIssueVModel
+
+@{
+    var lstData = (List<LMSSoft_Library.Models.FineReportList>)ViewBag.lstData;
+
+    ViewData["Title"] = "Fine Report Studentwise";
+
+    decimal? TotalAmt = 0;
+}
+
+<div class="row">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="@Url.Action("Index","Home")">Home</a>
+            </li>
+            <li>
+                <a href="#">Reports</a>
+            </li>
+            <li>
+                <a href="@Url.Action("StudentWiseFineReport","Report")">Fine Report Studentwise</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<br />
+
+<div class="main_content well">
+    <script src="~/Content/js/jquery-ui.min.js"></script>
+
+    <div class="form-group">
+        <div class="row">
+            @using (Html.BeginForm("StudentWiseFineReport", "Report", FormMethod.Post, new { @id = "form-submit" }))
+            {
+                <div class="col-sm-3 form-group" id="dvStudCode">
+                    @Html.LabelFor(m => m.StudCode, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.StudCode, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.StudCode, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-4 form-group" id="dvStudName">
+                    @Html.LabelFor(m => m.StudName, new { @class = "form-label" })
+                    @Html.EditorFor(m => m.StudName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @tabindex = "-1" } })
+                    @Html.ValidationMessageFor(m => m.StudName, "", new { @class = "text-danger" })
+                </div>
+                    <div class="col-sm-3 form-group" id="dvStudFaculty">
+                        @Html.LabelFor(m => m.Faculty, new { @class = "form-label" })
+                        @Html.EditorFor(m => m.Faculty, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @tabindex = "-1" } })
+                        @Html.ValidationMessageFor(m => m.Faculty, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-3 form-group" id="dvStudCourse">
+                        @Html.LabelFor(m => m.Course, new { @class = "form-label" })
+                        @Html.EditorFor(m => m.Course, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @tabindex = "-1" } })
+                        @Html.ValidationMessageFor(m => m.Course, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-2 form-group" id="dvStudSem">
+                        @Html.LabelFor(m => m.Semester, new { @class = "form-label" })
+                        @Html.EditorFor(m => m.Semester, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @tabindex = "-1" } })
+                        @Html.ValidationMessageFor(m => m.Semester, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-2 form-group" id="dvStudSec">
+                        @Html.LabelFor(m => m.Section, new { @class = "form-label" })
+                        @Html.EditorFor(m => m.Section, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @tabindex = "-1" } })
+                        @Html.ValidationMessageFor(m => m.Section, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-2 form-group" id="dvStudRoll">
+                        @Html.LabelFor(m => m.RollNo, new { @class = "form-label" })
+                        @Html.EditorFor(m => m.RollNo, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @tabindex = "-1" } })
+                        @Html.ValidationMessageFor(m => m.RollNo, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-2 form-group">
+                        <br />
+                        <button type="Submit" class="btn btn-sm btn-info">Show</button>
+                    </div>
+            }
+        </div>
+
+        <table class="table table-striped" style="width:40%;">
+            <thead>
+                <tr>
+                    <th>SN.</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+
+                    if (lstData != null)
+                    {
+                        int i = 0;
+                        foreach (var item in lstData)
+                        {
+                            TotalAmt += item.Amt;
+                            i++;
+                            <tr>
+                                <td>@i</td>
+                                <td>@(Convert.ToDateTime(item.FDate).ToString("yyyy-MM-dd"))</td>
+                                <td style="text-align:right;">@item.Amt</td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+            <tfoot>
+                <tr style="font-weight:bold;">
+                    <td colspan="2" style="text-align:right;">Total : </td>
+                    <td style="text-align:right;">@TotalAmt</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $("#StudCode").autocomplete({
+            source: '@Url.Action("GetStudentList","Book")',
+            autoFocus: true,
+            change: function (event, ui) {
+                if ($("#StudCode").val().indexOf("--") != -1) {
+                    $("#StudCode").val($("#StudCode").val().substring(0, $("#StudCode").val().indexOf("--")));
+                    LoadStudentData();
+                } else {
+                    $("#StudCode").val('');
+                    alert('Invalid Student Code.');
+                }
+            }
+        });
+        function LoadStudentData() {
+            $('#StudName').val('');
+            $("#Faculty").val('');
+            $("#Course").val('');
+            $("#Semester").val('');
+            $("#Section").val('');
+            $("#RollNo").val('');
+            if ($("#StudCode").val() != "") {
+                var data = { studcode: $("#StudCode").val() };
+                $.ajax({
+                    type: "Post",
+                    url: "@Url.Action("GetStudentDetails", "Book")",
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(data),
+                    datatype: "json",
+                    success: function (json) {
+                        if (json != null && json.rescode == "400") {
+                            $('#StudName').val(json.name);
+                            $("#Faculty").val(json.faculty);
+                            $("#Course").val(json.course);
+                            $("#Semester").val(json.sem);
+                            $("#Section").val(json.section);
+                            $("#RollNo").val(json.rollno);
+                            $("#AccessionNo").focus();
+                        }
+                    },
+                    error: function (json2) {
+                        alert('Something went wrong, please try again later.');
+                        $("#StudCode").val('');
+                    }
+                });
+            }
+        }
+    </script>
+}
